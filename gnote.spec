@@ -17,12 +17,20 @@ TODO
 %setup -q
 
 %build
-./configure --prefix=%_prefix --libdir=%_libdir
+# (misc) it seems that boost is not detected without
+# this. Problem is likely in boost rpm, but I have no idea 
+%define _disable_ld_as_needed 1
+%define _disable_ld_no_undefined 1
+
+%configure --with-gnu-ld
 %make
 
 %install
-%makeinstall
+%makeinstall_std
 %find_lang %{name}
+
+rm -f %{buildroot}/%_iconsdir/hicolor/icon-theme.cache
+
 %clean
 %__rm -rf %{buildroot}
 
@@ -35,3 +43,6 @@ TODO
 %_datadir/%{name}/
 %_datadir/omf/%{name}/
 %_sysconfdir/gconf/schemas/%{name}.schemas
+%{_datadir}/applications/*
+%_iconsdir/hicolor/*/apps/*.png
+%_iconsdir/hicolor/*/apps/*.svg
