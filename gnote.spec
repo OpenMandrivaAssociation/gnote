@@ -1,9 +1,9 @@
-Summary:	NES emulato
+Summary:	Note-taking application
 Name:		gnote
 Version:	0.3.0
 Release:	%mkrel 1
-Group:		TODO
-License:	GPL 
+Group:		Graphical desktop/GNOME
+License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
 # TODO
 BuildRequires: pkgconfig(gtkmm-2.4)
@@ -11,7 +11,15 @@ Source0:	%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
-TODO
+Gnote is a simple desktop note-taking application for GNOME. 
+Easy to use, but with potential to help you organize the ideas and
+information you deal with every day. Using a
+WikiWiki-like linking system, organizing ideas is as simple as typing
+a name. Branching an idea off is easy as pressing the Link button. And
+links between your ideas won't break, even when renaming and
+reorganizing them.
+
+This is a clone of Tomboy, in C++.
 
 %prep
 %setup -q
