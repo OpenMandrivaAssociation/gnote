@@ -6,7 +6,9 @@ Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
 # TODO
-BuildRequires: pkgconfig(gtkmm-2.4)
+BuildRequires: pkgconfig(gtkmm-2.4) gnome-doc-utils
+BuildRequires: pkgconfig(libxml++-2.6) pkgconfig(gconf-2.0)
+BuildRequires: devel(libuuid) boost-devel
 Source0:	%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
