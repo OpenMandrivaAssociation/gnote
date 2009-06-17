@@ -5,7 +5,6 @@ Release:	%mkrel 1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
-BuildRequires: libxml++2.6-devel
 BuildRequires: boost-devel
 BuildRequires: libext2fs-devel
 BuildRequires: libxslt-devel
