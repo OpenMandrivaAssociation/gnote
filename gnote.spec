@@ -1,15 +1,20 @@
 Summary:	Note-taking application
 Name:		gnote
-Version:	0.4.0
+Version:	0.5.0
 Release:	%mkrel 1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
-# TODO
-BuildRequires: pkgconfig(gtkmm-2.4) gnome-doc-utils
-BuildRequires: pkgconfig(libxml++-2.6) pkgconfig(gconf-2.0)
-BuildRequires: devel(libuuid) boost-devel
-Source0:	%{name}-%{version}.tar.bz2
+BuildRequires: libxml++2.6-devel
+BuildRequires: boost-devel
+BuildRequires: libext2fs-devel
+BuildRequires: libxslt-devel
+BuildRequires: gtkspell-devel
+BuildRequires: libpanelappletmm-devel
+BuildRequires: dbus-glib-devel
+BuildRequires: gnome-doc-utils
+BuildRequires: intltool
+Source0:       http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
@@ -32,7 +37,7 @@ This is a clone of Tomboy, in C++.
 %define _disable_ld_as_needed 1
 %define _disable_ld_no_undefined 1
 
-%configure --with-gnu-ld
+%configure2_5x --with-gnu-ld
 %make
 
 %install
@@ -56,3 +61,5 @@ rm -f %{buildroot}/%_iconsdir/hicolor/icon-theme.cache
 %{_datadir}/applications/*
 %_iconsdir/hicolor/*/apps/*.png
 %_iconsdir/hicolor/*/apps/*.svg
+%_libexecdir/gnote-applet
+%_libdir/bonobo/servers/GNOME_GnoteApplet.server
