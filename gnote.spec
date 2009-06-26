@@ -1,7 +1,7 @@
 Summary:	Note-taking application
 Name:		gnote
 Version:	0.5.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
@@ -13,6 +13,7 @@ BuildRequires: libpanelappletmm-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: gnome-doc-utils
 BuildRequires: intltool
+BuildRequires: desktop-file-utils
 Source0:       http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
@@ -31,19 +32,18 @@ This is a clone of Tomboy, in C++.
 %setup -q
 
 %build
-# (misc) it seems that boost is not detected without
-# this. Problem is likely in boost rpm, but I have no idea 
-%define _disable_ld_as_needed 1
-%define _disable_ld_no_undefined 1
 
-%configure2_5x --with-gnu-ld
+%configure2_5x --with-gnu-ld --disable-schemas-install
 %make
 
 %install
 %makeinstall_std
 %find_lang %{name}
 
-rm -f %{buildroot}/%_iconsdir/hicolor/icon-theme.cache
+desktop-file-install --vendor="" \
+  --remove-only-show-in="GNOME" \
+  --remove-only-show-in="XFCE" \
+  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 %clean
 %__rm -rf %{buildroot}
