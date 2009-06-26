@@ -45,6 +45,9 @@ desktop-file-install --vendor="" \
   --remove-only-show-in="XFCE" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
+%check
+make check
+
 %clean
 %__rm -rf %{buildroot}
 
