@@ -1,12 +1,12 @@
 Summary:	Note-taking application
 Name:		gnote
 Version:	0.6.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
 BuildRequires: boost-devel
-BuildRequires: libext2fs-devel
+BuildRequires: libuuid-devel
 BuildRequires: libxslt-devel
 BuildRequires: gtkspell-devel
 BuildRequires: libpanelappletmm-devel
