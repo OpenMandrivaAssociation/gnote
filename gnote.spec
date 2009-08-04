@@ -6,7 +6,11 @@ Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
 BuildRequires: boost-devel
+%if %mdvver >= 201000
 BuildRequires: libuuid-devel
+%else
+BuildRequires: libext2fs-devel
+%endif
 BuildRequires: libxslt-devel
 BuildRequires: gtkspell-devel
 BuildRequires: libpanelappletmm-devel
