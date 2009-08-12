@@ -1,7 +1,7 @@
 Summary:	Note-taking application
 Name:		gnote
-Version:	0.6.1
-Release:	%mkrel 2
+Version:	0.6.2
+Release:	%mkrel 1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
