@@ -14,7 +14,8 @@ BuildRequires: libext2fs-devel
 BuildRequires: libxslt-devel
 BuildRequires: gtkspell-devel
 BuildRequires: libpanelappletmm-devel
-BuildRequires: dbus-glib-devel
+#gw not yet packaged
+#BuildRequires: dbus-c++-devel
 BuildRequires: gnome-doc-utils
 BuildRequires: intltool
 BuildRequires: desktop-file-utils
