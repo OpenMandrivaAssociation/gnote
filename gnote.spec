@@ -1,7 +1,7 @@
 Summary:	Note-taking application
 Name:		gnote
 Version:	0.7.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
@@ -14,8 +14,7 @@ BuildRequires: libext2fs-devel
 BuildRequires: libxslt-devel
 BuildRequires: gtkspell-devel
 BuildRequires: libpanelappletmm-devel
-#gw not yet packaged
-#BuildRequires: dbus-c++-devel
+BuildRequires: dbus-c++-devel
 BuildRequires: gnome-doc-utils
 BuildRequires: intltool
 BuildRequires: desktop-file-utils
@@ -64,6 +63,7 @@ make check
 %_datadir/gnome/help/%{name}/
 %_datadir/%{name}/
 %_datadir/omf/%{name}/
+%_datadir/dbus-1/services/org.gnome.Gnote.service
 %_sysconfdir/gconf/schemas/%{name}.schemas
 %{_datadir}/applications/*
 %_iconsdir/hicolor/*/apps/*.png
