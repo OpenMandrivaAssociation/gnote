@@ -1,7 +1,7 @@
 Summary:	Note-taking application
 Name:		gnote
 Version:	0.7.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
