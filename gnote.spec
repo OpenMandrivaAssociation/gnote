@@ -37,7 +37,7 @@ This is a clone of Tomboy, in C++.
 %apply_patches
 
 %build
-
+export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
 %configure2_5x --with-gnu-ld --disable-schemas-install
 %make
 
