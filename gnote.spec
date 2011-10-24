@@ -51,7 +51,10 @@ desktop-file-install --vendor="" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 %check
+#gw this sometimes fails on 2010.2
+%if %mdvver >= 201100
 make check
+%endif
 
 %clean
 %__rm -rf %{buildroot}
