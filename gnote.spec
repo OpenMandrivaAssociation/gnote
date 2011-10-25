@@ -61,6 +61,7 @@ make check
 
 %files -f %{name}.lang
 %defattr(-,root,root)
+%doc NEWS README TODO AUTHORS
 %_mandir/man1/%{name}.1*
 %_bindir/%{name}
 %_libdir/%{name}
