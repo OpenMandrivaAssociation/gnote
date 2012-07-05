@@ -1,25 +1,22 @@
 Summary:	Note-taking application
 Name:		gnote
 Version:	0.7.6
-Release:	%mkrel 1
+Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
-BuildRequires: boost-devel
-%if %mdvver >= 201000
-BuildRequires: libuuid-devel
-%else
-BuildRequires: libext2fs-devel
-%endif
-BuildRequires: libxslt-devel
-BuildRequires: gtkspell-devel
-BuildRequires: libpanelappletmm-devel
-BuildRequires: dbus-c++-devel
-BuildRequires: gnome-doc-utils
-BuildRequires: intltool
-BuildRequires: desktop-file-utils
-Source0:       http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
+
+BuildRequires:	desktop-file-utils
+BuildRequires:	intltool
+BuildRequires:	boost-devel
+BuildRequires:	pkgconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gtkmm-3.0)
+BuildRequires:	pkgconfig(gtkspell-2.0)
+BuildRequires:	pkgconfig(libpanelapplet-4.0)
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(uuid)
+BuildRequires:	dbus-c++-devel
 
 %description
 Gnote is a simple desktop note-taking application for GNOME. 
@@ -38,7 +35,9 @@ This is a clone of Tomboy, in C++.
 
 %build
 export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
-%configure2_5x --with-gnu-ld --disable-schemas-install
+%configure2_5x \
+	--with-gnu-ld \
+	--disable-schemas-install
 %make
 
 %install
@@ -46,9 +45,10 @@ export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
 %find_lang %{name}
 
 desktop-file-install --vendor="" \
-  --remove-only-show-in="GNOME" \
-  --remove-only-show-in="XFCE" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+	--remove-only-show-in="GNOME" \
+	--remove-only-show-in="XFCE" \
+	--dir %{buildroot}%{_datadir}/applications \
+	%{buildroot}%{_datadir}/applications/*
 
 %check
 #gw this sometimes fails on 2010.2
@@ -56,22 +56,19 @@ desktop-file-install --vendor="" \
 make check
 %endif
 
-%clean
-%__rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc NEWS README TODO AUTHORS
-%_mandir/man1/%{name}.1*
-%_bindir/%{name}
-%_libdir/%{name}
-%_datadir/gnome/help/%{name}/
-%_datadir/%{name}/
-%_datadir/omf/%{name}/
-%_datadir/dbus-1/services/org.gnome.Gnote.service
-%_sysconfdir/gconf/schemas/%{name}.schemas
+%{_mandir}/man1/%{name}.1*
+%{_bindir}/%{name}
+%{_libdir}/%{name}
+%{_datadir}/gnome/help/%{name}/
+%{_datadir}/%{name}/
+%{_datadir}/omf/%{name}/
+%{_datadir}/dbus-1/services/org.gnome.Gnote.service
+%{_sysconfdir}/gconf/schemas/%{name}.schemas
 %{_datadir}/applications/*
-%_iconsdir/hicolor/*/apps/*.png
-%_iconsdir/hicolor/*/apps/*.svg
-%_libexecdir/gnote-applet
-%_libdir/bonobo/servers/GNOME_GnoteApplet.server
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.svg
+%{_libexecdir}/gnote-applet
+%{_libdir}/bonobo/servers/GNOME_GnoteApplet.server
+
