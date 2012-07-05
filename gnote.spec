@@ -1,22 +1,27 @@
+%define	api	0.9
+%define	major	1
+%define	libname	%mklibname %{name} %{api} %{major}
+%define	devname	%mklibname %{name} -d
+
 Summary:	Note-taking application
 Name:		gnote
-Version:	0.7.6
+Version:	0.9.1
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(gtkspell-2.0)
 BuildRequires:	pkgconfig(libpanelapplet-4.0)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(uuid)
-BuildRequires:	dbus-c++-devel
 
 %description
 Gnote is a simple desktop note-taking application for GNOME. 
@@ -29,6 +34,21 @@ reorganizing them.
 
 This is a clone of Tomboy, in C++.
 
+%package -n %{libname}
+Summary:	Shared library for %{name}
+Group:		System/Libraries
+
+%description -n %{libname}
+This package contains the shared library for %{name}.
+
+%package -n %{devname}
+Summary:	Development library for %{name}
+Group:		Development/C
+Requires:	%{libname} = %{version}
+
+%description -n %{devname}
+This package contains the development library for %{name}.
+
 %prep
 %setup -q
 %apply_patches
@@ -36,13 +56,14 @@ This is a clone of Tomboy, in C++.
 %build
 export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
 %configure2_5x \
-	--with-gnu-ld \
-	--disable-schemas-install
-%make
+	--disable-static \
+	--with-gnu-ld
+
+%make LIBS='-lX11'
 
 %install
 %makeinstall_std
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 desktop-file-install --vendor="" \
 	--remove-only-show-in="GNOME" \
@@ -58,17 +79,18 @@ make check
 
 %files -f %{name}.lang
 %doc NEWS README TODO AUTHORS
-%{_mandir}/man1/%{name}.1*
 %{_bindir}/%{name}
 %{_libdir}/%{name}
-%{_datadir}/gnome/help/%{name}/
 %{_datadir}/%{name}/
-%{_datadir}/omf/%{name}/
-%{_datadir}/dbus-1/services/org.gnome.Gnote.service
-%{_sysconfdir}/gconf/schemas/%{name}.schemas
 %{_datadir}/applications/*
+%{_datadir}/dbus-1/services/org.gnome.Gnote.service
+%{_datadir}/glib-2.0/schemas/org.gnome.gnote.gschema.xml
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
-%{_libexecdir}/gnote-applet
-%{_libdir}/bonobo/servers/GNOME_GnoteApplet.server
+%{_mandir}/man1/%{name}.1*
 
+%files -n %{libname}
+%{_libdir}/libgnote-%{api}.so.%{major}*
+
+%files -n %{devname}
+%{_libdir}/libgnote.so
