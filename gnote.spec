@@ -97,6 +97,7 @@ make check
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
 %{_mandir}/man1/%{name}.1*
+%{_datadir}/gnome-shell/search-providers/gnote-search-provider.ini
 
 %files -n %{libname}
 %{_libdir}/libgnote-%{api}.so.%{major}*
