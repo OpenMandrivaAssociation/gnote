@@ -5,7 +5,7 @@
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	3.32.1
+Version:	3.34.0
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
