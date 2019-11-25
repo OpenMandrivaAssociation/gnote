@@ -100,7 +100,7 @@ make check
 %{_datadir}/gnome-shell/search-providers/gnote-search-provider.ini
 
 %files -n %{libname}
-%{_libdir}/libgnote-%{api}.so.%{major}*
+%{_libdir}/libgnote-%{api}.so.*
 
 %files -n %{devname}
 %{_libdir}/libgnote.so
