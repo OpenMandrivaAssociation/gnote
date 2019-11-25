@@ -5,7 +5,7 @@
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	3.34.0
+Version:	3.34.1
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
@@ -100,7 +100,7 @@ make check
 %{_datadir}/gnome-shell/search-providers/gnote-search-provider.ini
 
 %files -n %{libname}
-%{_libdir}/libgnote-%{api}.so.%{major}*
+%{_libdir}/libgnote-%{api}.so.*
 
 %files -n %{devname}
 %{_libdir}/libgnote.so
