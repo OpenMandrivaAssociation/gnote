@@ -59,7 +59,7 @@ This package contains the development library for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
