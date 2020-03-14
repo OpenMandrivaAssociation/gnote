@@ -1,11 +1,11 @@
-%define	api	3.34
+%define	api	3.35
 %define	major	0
 %define	libname	%mklibname %{name} %{api} %{major}
 %define	devname	%mklibname %{name} -d
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	3.34.1
+Version:	3.35.0
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
@@ -63,14 +63,14 @@ This package contains the development library for %{name}.
 
 %build
 export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-gnu-ld
 
-%make LIBS='-lX11'
+%make_build LIBS='-lX11'
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name} --with-gnome
 
 desktop-file-install --vendor="" \
