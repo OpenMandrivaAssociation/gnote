@@ -93,7 +93,7 @@ make check
 %{_datadir}/applications/*
 %{_datadir}/dbus-1/services/org.gnome.Gnote.service
 %{_datadir}/glib-2.0/schemas/org.gnome.gnote.gschema.xml
-%{_datadir}/metainfo/org.gnome.gnote.appdata.xml
+%{_datadir}/metainfo/org.gnome.Gnote.appdata.xml
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
 %{_mandir}/man1/%{name}.1*
