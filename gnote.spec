@@ -97,4 +97,4 @@ desktop-file-install --vendor="" \
 %{_libdir}/libgnote-%{api}.so.*
 
 %files -n %{devname}
-#{_libdir}/libgnote.so
+%{_libdir}/libgnote-%{api}.so
