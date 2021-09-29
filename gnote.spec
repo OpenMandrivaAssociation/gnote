@@ -12,6 +12,7 @@ License:	GPLv3
 URL:		http://live.gnome.org/Gnote
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
+BuildRequires:	meson
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	boost-devel
@@ -63,14 +64,12 @@ This package contains the development library for %{name}.
 
 %build
 export CXXFLAGS="%optflags  -DBOOST_FILESYSTEM_VERSION=2"
-%configure \
-	--disable-static \
-	--with-gnu-ld
+%meson
 
-%make_build LIBS='-lX11'
+%meson_build
 
 %install
-%make_install
+%meson_install
 %find_lang %{name} --with-gnome
 
 desktop-file-install --vendor="" \
