@@ -1,11 +1,11 @@
-%define	api	41
+%define	api	42
 %define	major	0
 %define	libname	%mklibname %{name} %{api} %{major}
 %define	devname	%mklibname %{name} -d
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	41.2
+Version:	42.0
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
