@@ -81,7 +81,7 @@ desktop-file-install --vendor="" \
 	%{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
-%doc NEWS README TODO AUTHORS
+%doc NEWS README* TODO AUTHORS
 %{_bindir}/%{name}
 %{_libdir}/%{name}
 %{_datadir}/%{name}/
