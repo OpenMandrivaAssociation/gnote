@@ -18,6 +18,8 @@ BuildRequires:	intltool
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(glibmm-2.4)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	gtk-update-icon-cache
+BuildRequires:	gtk4
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gtkmm-3.0)
