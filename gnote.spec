@@ -89,8 +89,8 @@ desktop-file-install --vendor="" \
 %{_datadir}/dbus-1/services/org.gnome.Gnote.service
 %{_datadir}/glib-2.0/schemas/org.gnome.gnote.gschema.xml
 %{_datadir}/metainfo/org.gnome.Gnote.appdata.xml
-#{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.Gnote.png
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/gnome-shell/search-providers/org.gnome.Gnote.search-provider.ini
 
