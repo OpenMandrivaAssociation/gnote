@@ -16,7 +16,7 @@ BuildRequires:	meson
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	boost-devel
-BuildRequires:	pkgconfig(glibmm-2.4)
+BuildRequires:	pkgconfig(glibmm-2.68)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	gtk-update-icon-cache
 BuildRequires:	gtk4
