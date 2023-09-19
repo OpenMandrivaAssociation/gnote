@@ -17,6 +17,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(glibmm-2.68)
+BuildRequires:	pkgconfig(gtkmm-4.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	gtk-update-icon-cache
 BuildRequires:	gtk4
