@@ -1,16 +1,16 @@
-%define	api	44
+%define	api	45
 %define	major	0
 %define	libname	%mklibname %{name} %{api} %{major}
 %define	devname	%mklibname %{name} -d
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	44.1
-Release:	1
+Version:	45
+Release:	0.rc.0
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		http://live.gnome.org/Gnote
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.rc.tar.xz
 
 BuildRequires:	meson
 BuildRequires:	desktop-file-utils
@@ -61,7 +61,7 @@ Requires:	%{libname} = %{version}
 This package contains the development library for %{name}.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.rc
 %autopatch -p1
 
 %build
