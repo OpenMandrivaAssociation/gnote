@@ -1,16 +1,16 @@
-%define	api	45
+%define	api	46
 %define	major	0
 %define	libname	%mklibname %{name} %{api} %{major}
 %define	devname	%mklibname %{name} -d
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	45.1
+Version:	46.0
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
-URL:		http://live.gnome.org/Gnote
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+URL:		https://live.gnome.org/Gnote
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
 BuildRequires:	meson
 BuildRequires:	desktop-file-utils
@@ -25,7 +25,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(gtkspell3-3.0)
-#BuildRequires:	pkgconfig(libpanelapplet-4.0)
+BuildRequires:	pkgconfig(libadwaita-1)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(libsecret-1)
 BuildRequires:	pkgconfig(libxml-2.0)
