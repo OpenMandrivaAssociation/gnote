@@ -1,17 +1,18 @@
-%define	api	48
+%define	api	49
 %define	major	0
 %define	libname	%mklibname %{name} %{api} %{major}
 %define	devname	%mklibname %{name} -d
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	48.1
+Version:	49.alpha
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		https://live.gnome.org/Gnote
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
+BuildRequires:	appstream
 BuildRequires:	meson
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
