@@ -5,7 +5,7 @@
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	49.1
+Version:	49.2
 Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
