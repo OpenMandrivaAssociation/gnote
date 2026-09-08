@@ -5,8 +5,8 @@
 
 Summary:	Note-taking application
 Name:		gnote
-Version:	50.1
-Release:	2
+Version:	50.2
+Release:	1
 Group:		Graphical desktop/GNOME
 License:	GPLv3 
 URL:		https://live.gnome.org/Gnote
